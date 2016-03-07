@@ -1,0 +1,65 @@
+body {
+
+  padding: 50px;
+  font: 14px "verdana", Helvetica, sans-serif;
+
+  background-image: url("../images/dashboard1920.jpg");
+  background-repeat: repeat-y;
+
+}
+
+a {
+  color: #00B7FF;
+}
+
+h1, h2 {
+	text-align: center;
+	font: "verdana", Helvetica, sans-serif;
+}
+
+.row {
+	height: 300px;
+}
+
+.input-group {
+	margin-top: 10px;
+	border-radius: 20px;
+  padding: 20px; 
+	border: 3px solid purple;
+	background-color: black;
+	width: 100%;
+	opacity: 0.8;
+
+}
+
+img {
+	padding-right: 10px;
+	padding-top: 5px;
+}
+.col-md-3
+{
+	border-radius: 25px;
+  padding: 20px; 
+  width: 200px;
+  height: 600px; 
+	border: 3px solid purple;
+	background-color: black;
+	opacity: 0.8;
+	font: "verdana", Helvetica, sans-serif, white;
+}
+
+.col-md-6
+{
+	border-radius: 25px;
+	padding: 20px; 
+	width: 200px;
+	height: 600px; 
+	background-color: black;
+	border: 3px solid purple;
+	opacity: 0.8;
+}
+
+.col-xs-6 {
+	text-align: center;
+	font: "verdana", Helvetica, sans-serif, white;
+}

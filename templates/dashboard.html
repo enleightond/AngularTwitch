@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+  <!-- jQuery CDN min -->
+  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  
+    <link rel='stylesheet' href='/stylesheets/dash.css'>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <script src="//code.jquery.com/jquery.min.js"></script>
+  <script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>
+
+  <script>  
+    Twitch.init({process.env.TWITCH_CLIENT_ID}, function(error, status) {
+    // the sdk is now loaded
+    });
+  </script>
+
+  <!-- Javascript -->
+  <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+    <script type="text/javascript" src="js/service.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/dash.css">
+
+</head>
+<body>
+	<!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Twitcher's Digest</a>
+        </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../index/">Sign Out</a></li>
+          </ul>
+      </div>
+    </nav>
+
+  <div class="container"> 
+    <div class="row ">
+      <form action="/dashboard/search" method="get">
+        <div class="input-group">
+          <input type="submit" value="submit">
+          <input type="text" name="twitcherSearch" class="form-control" placeholder="Search for games or streamers...">
+        </div>
+      </form>
+
+      <div class="col-md-3"><h2>Add to Favorites</h2>
+        <% games.forEach(function(game) { %>
+         <li><a href=""> <%= game.name %> </a></li>
+        <% }); %>
+        
+      </div>
+    
+      <div class="col-md-6"><h1>Favorite Game Streams</h1>
+      <% games.forEach(function(game) { %>
+          <!-- <img src=<%= game.box.small %> /> -->
+        <% }); %>
+        
+      </div>
+      
+      <div class="col-md-3"><h2>Watch a Streamer</h2>
+              
+        <div class="col-xs-6"><h3>Streamer</h3>
+          <ul class= "list-unstyled">
+            <li>
+            <% streams.forEach(function(stream) { %>
+              <a href="https://api.twitch.tv/kraken/streams"><%= stream.channel.display_name %></a>
+            <% }); %>
+            </li>
+          </ul>
+        </div>
+        <div class="col-xs-6"><h3>Views</h3>
+          <ul class= "list-unstyled">
+            <li>
+            <% streams.forEach(function(stream) { %>
+              <li><%= stream.viewers %></li>
+            <% }); %> 
+            </li>
+          </ul>
+        </div>
+      </div>
+        
+    </div>  
+        
+  </div>
+
+   
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "ang_twitch",
+  "version": "1.0.0",
+  "description": "* Features:   - Individual user account   - Personalized page to include favorite streams   - Track streamers   - Tracks status of streamers (on/offline)   - Search and filter for all games * Wishlist:   - Embedded video   - Email/text alert/update for live streams",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enleightond/AngularTwitch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enleightond/AngularTwitch/issues"
+  },
+  "homepage": "https://github.com/enleightond/AngularTwitch#readme"
+}
