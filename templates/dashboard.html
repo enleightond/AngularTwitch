@@ -50,19 +50,28 @@
     </nav>
 
   <div class="container"> 
-    <div class="row ">
+    <div class="row">
       <form action="/dashboard/search" method="get">
-        <div class="input-group">
+        <div class="input-group input-group-lg align=center " >
+          <span class="input-group-addon glyphicon glyphicon-text-size"></span>
           <input type="text" name="twitcherSearch" class="form-control" placeholder="Get yer game on...">
-          <input class="subBut" type="submit" value="submit">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Find it!</button>
+          </span>
+          
         </div>
       </form>
     <!-- <div class="container-fluid"> -->
       <div class="col-md-6"><h2>Select here!</h2>
-        <% games.forEach(function(game) { %>
-         <li><a href=""> <%= game.name %> </a></li>
-        <% }); %>
-        
+        <ul class="list-inline">
+          <li><img src="https://placebear.com/100/150"></a></li>
+          <li><img src="https://placebear.com/100/150"></a></li>
+          <li><img src="https://placebear.com/100/150"></a></li>
+          <li><img src="https://placebear.com/100/150"></a></li>
+        <!-- <% games.forEach(function(game) { %> -->
+         <ul><a href=""> <%= game.name %> </a></ul>
+        <!-- <% }); %> -->
+        </ul>
       </div>
     
       
@@ -70,12 +79,17 @@
               
         <div class="col-xs-6"><h3>Streamers</h3>
           <ul class= "list-unstyled">
-            <li>
-            <% streams.forEach(function(stream) { %>
-              <a href="https://api.twitch.tv/kraken/streams"><%= stream.channel.display_name %></a>
-            <% }); %>
-            </li>
+          
+              <li><img src="https://placebear.com/50/75"></a></li>
+              <li><img src="https://placebear.com/50/75"></a></li>
+              <li><img src="https://placebear.com/50/75"></a></li>
+              <li><img src="https://placebear.com/50/75"></a></li>
+        
           </ul>
+            <!-- <% streams.forEach(function(stream) { %> -->
+              <a href="https://api.twitch.tv/kraken/streams"><%= stream.channel.display_name %></a>
+            <!-- <% }); %> -->
+ 
         </div>
         <div class="col-xs-6"><h3>Viewers</h3>
           <ul class= "list-unstyled">
@@ -91,11 +105,11 @@
       <% games.forEach(function(game) { %>
           <!-- <img src=<%= game.box.small %> /> -->
         <% }); %>
-        
+       
       </div>
     <!-- </div>     -->
     </div>  
-        
+      
   </div>
 
    

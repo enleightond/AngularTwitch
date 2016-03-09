@@ -16,20 +16,14 @@ h1, h2 {
 	font: "verdana", Helvetica, sans-serif;
 }
 
-.navbar-header {
-	
-}
-.navbar-brand {
-}
-
 .row {
 	padding-top: 20px;
 	height: 300px;
 }
 .subBut {
-	margin: 5px;
+	
 	width: 180px;
-	border-radius: 5px;
+	border-radius: 3px;
 
 }
 .input-group {
@@ -47,13 +41,14 @@ img {
 	padding-right: 10px;
 	padding-top: 5px;
 }
+
 .col-md-6
 {
 	
 	margin: 5px;
 	border-radius: 10px;
   	padding: 10px; 
-  	/*width: auto;*/
+  	width: 575px;
   	height: 100%; 
 	/*border: 3px solid blue;*/
 	background-color: black;
@@ -67,7 +62,7 @@ img {
 	border-radius: 10px;
 	padding: 10px; 
 	/*width: auto;*/
-	height: 50px; 
+	height: 150px; 
 	background-color: black;
 	border: 3px solid black;
 	opacity: 0.8;
