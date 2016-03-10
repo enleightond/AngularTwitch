@@ -4,19 +4,23 @@ body {
   font: 14px "verdana", Helvetica, sans-serif;
 
   background-image: url("../images/dashboard1920.jpg");
-
+  background: radial-gradient(circle, #6441a5, black);
 }
 
 a {
   color: #00B7FF;
 }
 
-h1, h2 {
+h1, h2, h4 {
 	text-align: center;
 	font: "verdana", Helvetica, sans-serif;
 }
 
-.row {
+.rowSearch {
+	padding-top: 20px;
+	height: 100px;
+}
+.rowGames {
 	padding-top: 20px;
 	height: 300px;
 }
@@ -27,14 +31,14 @@ h1, h2 {
 
 }
 .input-group {
-	/*margin-top: 15px;
-  	padding-top: 10px; 
-	border: 3px solid blue;
-	background-color: black;*/
 	border-radius: 10px;
 	width: 100%;
 	opacity: 0.9;
+	height: 52px;
+}
 
+.input-group-addon {
+	height: 50px;
 }
 
 img {
@@ -48,8 +52,8 @@ img {
 	margin: 5px;
 	border-radius: 10px;
   	padding: 10px; 
-  	width: 575px;
-  	height: 100%; 
+  	width: 570px;
+  	height: 300px; 
 	/*border: 3px solid blue;*/
 	background-color: black;
 	opacity: 0.8;
@@ -62,7 +66,7 @@ img {
 	border-radius: 10px;
 	padding: 10px; 
 	/*width: auto;*/
-	height: 150px; 
+	height: 180px; 
 	background-color: black;
 	border: 3px solid black;
 	opacity: 0.8;
@@ -71,4 +75,9 @@ img {
 .col-xs-6 {
 	text-align: center;
 	font: "verdana", Helvetica, sans-serif, white;
+}
+
+#searchbarBoarder{
+	margin-left: 25%;
+	margin-right: 25%;
 }
