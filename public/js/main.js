@@ -3,7 +3,7 @@ var app = angular.module('angTwitch', ['ngDraggable']);
 app.config(function($routeProvider){
 	$routeProvider
 		.when('/', {
-			templateUrl: "/partials/index.html", 
+			templateUrl: "/partials/login.html", 
 			controller: "Login"
 		})
 		.when('/dashboard', {

@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('_example:server');
+var debug = require('debug')('TwitchMe:server');
 var http = require('http');
 
 /**
