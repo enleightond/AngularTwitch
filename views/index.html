@@ -14,6 +14,17 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"</script>
 	
+  <script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>
+
+  <script>  
+    Twitch.init({process.env.TWITCH_CLIENT_ID}, function(error, status) {
+    // the sdk is now loaded
+    });
+  </script>
+  <link rel="stylesheet" type="text/css" href="../public/stylesheets/dash.css">
+
+
+
 	<!-- Javascript -->
 	<script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/controller.js"></script>
