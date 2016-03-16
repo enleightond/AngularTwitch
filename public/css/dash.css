@@ -3,9 +3,9 @@ body {
   padding: 50px;
   font: 14px "verdana", Helvetica, sans-serif;
 
+  background: radial-gradient(circle, #6441a5, black);
   background-image: url("../images/dashboard1920.jpg");
   opacity: 0.8;
-  background: radial-gradient(circle, #6441a5, black);
 }
 
 a {

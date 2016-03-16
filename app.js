@@ -35,6 +35,12 @@ app.use(session({
   keys: [process.env['SECRET_KEY']]
 }));
 
+$('.twitch-connect').click(function() {
+  Twitch.login({
+    scope: ['user_read', 'channel_read']
+  });
+})
+
 app.use('/', routes);
 // app.use('/api/users', users);
 // app.use('/api/signup', signup);

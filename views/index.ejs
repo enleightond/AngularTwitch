@@ -14,7 +14,12 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
   <script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>
   <script>  
-    // Twitch.init({process.env.TWITCH_CLIENT_ID}, function(error, status) {});
+    Twitch.init({process.env:TWITCH_CLIENT_ID}, function(error, status) {
+      if (status.authenticated) {
+        // Already logged in, hide button
+        $('.twitch-connect').hide()
+      }
+    });
   </script>
   <link rel="stylesheet" type="text/css" href="/css/dash.css">
   
@@ -24,8 +29,10 @@
   <script type="text/javascript" src="js/directives.js"></script>
   <script type="text/javascript" src="js/services.js"></script>
     <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="/css/dash.css">
+  <link rel="stylesheet" type="text/css" href="/css/signup.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <base href="/">
+  <!-- <base href="/"> -->
 </head>
 <body ng-app='angTwitch'>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -35,10 +42,10 @@
         </div>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="../index.html">Sign Out</a></li>
+            <li class="twlogo"><a href=""> <img src="../public/images/twitch_burst.png"></a></li>
           </ul>
       </div>
     </nav>
-
 	<div ng-view>
 	<!-- Angular code -->
 	</div>

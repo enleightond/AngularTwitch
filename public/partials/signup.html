@@ -1,12 +1,15 @@
 <!-- Login box -->
 <div>
-	<form class="form-signin" action="/signup" method="POST">       
-	    <h2 class="form-signin-heading">Please Register</h2>
-	    <input type="text" class="form-control" name="name" placeholder="User Name" required="" autofocus=""/>
-	    <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus=""/>
-	    <input type="password" class="form-control" name="password" placeholder="Password" required=""/>     
-	    <input type="password" class="form-control" name="confirm" placeholder="Confirm Password" required=""/>      
-	    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
-	    <!--  <button><img src="http://ttv-api.s3.amazonaws.com/assets/connect_dark.png" class="twitch-connect" href="#" /></button> -->	     
-	</form>
+	<div class="col-sm-4"></div>
+	<div class="col-sm-4 signup">	
+		<form action="/signup" method="POST">       
+		    <input type="text" name="name" placeholder="User Name" required="" autofocus=""/>
+		    <input type="text" name="email" placeholder="Email Address" required="" autofocus=""/>
+		    <input type="password" name="password" placeholder="Password" required=""/>     
+		    <input type="password" name="confirm" placeholder="Confirm Password" required=""/>
+		    <button class="btn btn-lg" type="submit">Sign Up</button>
+		     <button><img src="http://ttv-api.s3.amazonaws.com/assets/connect_dark.png" class="twitch-connect" href="#" /></button>	     
+		</form>
+	</div>
+	<div class="col-sm-4"></div>
 </div>
