@@ -1,6 +1,6 @@
-var app = angular.module('angTwitch', ['ngRoute', 'ngDraggable']);
+var app = angular.module('angTwitch', ['ngRoute']);
 
-app.config(['$routeProvider',function($routeProvider){
+app.config(['$routeProvider','$locationProvider',function($routeProvider, $locationProvider){
 	$routeProvider
 		.when('/', {
 			templateUrl: "/partials/login.html", 

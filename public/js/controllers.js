@@ -1,11 +1,14 @@
-app.controller('LoginController', ['$scope', 'searchService', function($scope, $location, searchService) {
+app.controller('LoginController', ['$scope', '$location','searchService', function($scope, $location, searchService) {
 	$scope.test = "this is just a test";
-	$scope.games = searchService.getGames();
+	// searchService.getGames().then(function(data) {
+	// 	$scope.games = data
+	//});
 
 }]);
 
-
-app.controller('DashboardController', ['$scope', 'searchService', function($scope, $location, searchService) {
-
+app.controller('DashboardController', ['$scope', '$location','searchService', function($scope, $location, searchService) {
+	searchService.getGames().then(function(data) {
+		$scope.games = data
+	});
 }])
 	

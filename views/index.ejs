@@ -14,7 +14,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
   <script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>
   <script>  
-    Twitch.init({process.env.TWITCH_CLIENT_ID}, function(error, status) {});</script>
+    // Twitch.init({process.env.TWITCH_CLIENT_ID}, function(error, status) {});
+  </script>
   <link rel="stylesheet" type="text/css" href="/css/dash.css">
   
 	<script type="text/javascript" src="js/main.js"></script>
@@ -24,6 +25,7 @@
   <script type="text/javascript" src="js/services.js"></script>
     <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <base href="/">
 </head>
 <body ng-app='angTwitch'>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -37,7 +39,7 @@
       </div>
     </nav>
 
-	<div ng-view ng-controller="LoginController">
+	<div ng-view>
 	<!-- Angular code -->
 	</div>
 
