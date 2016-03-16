@@ -12,15 +12,10 @@ var session = require('cookie-session');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var signup = require('./routes/signup');
-
-
 var jsonParser = bodyParser.json()
-
 var app = express();
 
-
 require('dotenv').load();
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,7 +35,6 @@ app.use(session({
   keys: [process.env['SECRET_KEY']]
 }));
 
-
 app.use('/', routes);
 // app.use('/api/users', users);
 // app.use('/api/signup', signup);
@@ -51,7 +45,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
 
 // development error handler
 // will print stacktrace
@@ -74,6 +67,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;

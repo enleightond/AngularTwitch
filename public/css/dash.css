@@ -4,6 +4,7 @@ body {
   font: 14px "verdana", Helvetica, sans-serif;
 
   background-image: url("../images/dashboard1920.jpg");
+  opacity: 0.8;
   background: radial-gradient(circle, #6441a5, black);
 }
 
