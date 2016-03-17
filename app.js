@@ -27,21 +27,21 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(session({
   name: 'cookie-session',
-  keys: [process.env['SECRET_KEY']]
+  keys: [process.env.TWITCH_CLIENT_SECRET]
 }));
 
 
 app.use('/', routes);
-app.use('/auth/twitchtv', twitchAuth);
-// app.use('/api/users', users);
-// app.use('/api/signup', signup);
+app.use('/auth/twitch', twitchAuth);
+app.use('/api/users', users);
+app.use('/api/signup', signup);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
