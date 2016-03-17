@@ -8,7 +8,7 @@ router.use(passport.initialize());
 passport.use(new twitchStrategy({
     clientID: process.env.TWITCH_CLIENT_ID,
     clientSecret: process.env.TWITCH_CLIENT_SECRET,
-    callbackURL: "http://127.0.0.1/signup/callback",
+    callbackURL: "http://127.0.0.1:3000/auth/twitch/callback",
     scope: "user_read"
   },
   function(accessToken, refreshToken, profile, done) {
@@ -18,7 +18,6 @@ passport.use(new twitchStrategy({
     });
   }
 ));
-
 
 passport.serializeUser(function(user, done) {
     done(null, user);
@@ -32,8 +31,10 @@ router.get("/", function (req, res) {
     res.render("index");
 });
 
-router.get("/signup", passport.authenticate("twitch"));
-router.get("/signup/callback", passport.authenticate("twitch", { failureRedirect: "/" }), function(req, res) {
+router.get("/auth/twitch", passport.authenticate("twitch"));
+router.get("/auth/twitch/callback", passport.authenticate("twitch", { failureRedirect: "/" }), function(req, res) {
     // Successful authentication, redirect home.
     res.redirect("/dashboard");
 });
+
+module.exports = router;
