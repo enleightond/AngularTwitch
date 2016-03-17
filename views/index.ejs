@@ -6,21 +6,15 @@
 	<!-- Technologies -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.js"></script> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
 	 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
   <script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>
-  <script>  
-    Twitch.init({process.env:TWITCH_CLIENT_ID}, function(error, status) {
-      if (status.authenticated) {
-        // Already logged in, hide button
-        $('.twitch-connect').hide()
-      }
-    });
-  </script>
+  <script src="//cdn.jsdelivr.net/satellizer/0.14.0/satellizer.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="/css/dash.css">
   
 	<script type="text/javascript" src="js/main.js"></script>
@@ -42,7 +36,7 @@
         </div>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="../index.html">Sign Out</a></li>
-            <li class="twlogo"><a href=""> <img src="../public/images/twitch_burst.png"></a></li>
+            <!-- <li class="twlogo"><a href=""> <img src="../public/images/twitch_burst.png"></a></li> -->
           </ul>
       </div>
     </nav>

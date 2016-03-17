@@ -1,6 +1,6 @@
-var app = angular.module('angTwitch', ['ngRoute']);
+var app = angular.module('angTwitch', ['ngRoute', 'satellizer']);
 
-app.config(['$routeProvider','$locationProvider',function($routeProvider, $locationProvider){
+app.config(['$routeProvider','$locationProvider', '$authProvider', function($routeProvider, $locationProvider, $authProvider){
 	$routeProvider
 		.when('/', {
 			templateUrl: "/partials/signup.html", 
@@ -16,7 +16,20 @@ app.config(['$routeProvider','$locationProvider',function($routeProvider, $locat
 		})
 		.otherwise({
 		    redirectTo: '/'
-		  	});
+		});
 			// $locationProvider.html5Mode(true);
 
+	$authProvider
+		.twitch({
+      		clientId: 'TWITCH_CLIENT_ID',
+      		url: '/auth/twitch',
+  			authorizationEndpoint: 'https://api.twitch.tv/kraken/oauth2/authorize',
+		  	redirectUri: window.location.origin,
+		  	requiredUrlParams: ['scope'],
+		  	scope: ['user_read'],
+		  	scopeDelimiter: ' ',
+		  	display: 'popup',
+		  	type: '2.0',
+		  	popupOptions: { width: 500, height: 560 }
+    	});
 }]);

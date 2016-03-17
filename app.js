@@ -1,19 +1,21 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var knex = require('knex');
 var pg = require('pg');
+var request = require('request');
 var passport = require("passport");
 var twitchStrategy = require("passport-twitch").Strategy;
 var session = require('cookie-session');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var signup = require('./routes/signup');
-var jsonParser = bodyParser.json()
+var jsonParser = bodyParser.json();
 var app = express();
+var twitchAuth = require('./routes/twitchAuth');
 
 require('dotenv').load();
 
@@ -35,22 +37,18 @@ app.use(session({
   keys: [process.env['SECRET_KEY']]
 }));
 
-$('.twitch-connect').click(function() {
-  Twitch.login({
-    scope: ['user_read', 'channel_read']
-  });
-})
 
 app.use('/', routes);
+app.use('/auth/twitchtv', twitchAuth);
 // app.use('/api/users', users);
 // app.use('/api/signup', signup);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
 
 // development error handler
 // will print stacktrace
