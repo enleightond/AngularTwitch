@@ -1,15 +1,18 @@
-<!-- Login box -->
+<!-- Signup box -->
 <div>
+	<h1>Sign Up</h1>
 	<div class="col-sm-4"></div>
-	<div class="col-sm-4 signup">	
-		<form action="/signup" method="POST">       
-		    <input type="text" name="name" placeholder="User Name" required="" autofocus=""/>
-		    <input type="text" name="email" placeholder="Email Address" required="" autofocus=""/>
-		    <input type="password" name="password" placeholder="Password" required=""/>     
-		    <input type="password" name="confirm" placeholder="Confirm Password" required=""/>
-		    <button class="btn btn-lg" type="submit">Sign Up</button>
-		</form>
-		     <a href="/auth/twitch"><img src="http://ttv-api.s3.amazonaws.com/assets/connect_dark.png" class="twitch-connect"/></a>
+	<div class="col-sm-4">
+		<div class="signup">
+			<form action="/signup" method="POST">       
+			    <input type="text" name="name" placeholder="Username" required="" autofocus=""/>
+			    <input type="text" name="email" placeholder="Email" required="" autofocus=""/>
+			    <input type="password" name="password" placeholder="Password" required=""/>     
+			    <input type="password" name="confirm" placeholder="Confirm Password" required=""/>
+			    <button class="btn btn-lg" type="submit">Sign Up</button>
+			</form>
+			     <a href="/auth/twitch"><img src="http://ttv-api.s3.amazonaws.com/assets/connect_dark.png" class="twitch-connect"/></a>
+		</div>
 	</div>
 	<div class="col-sm-4"></div>
 </div>
