@@ -1,12 +1,11 @@
 .signup {
-	/*display: inline-block;
-	width: 150px;
-    height: 75px;
-    margin-left: 0%;
+	height: 400px;
+	background-color: black;
+	opacity: .7;
    	border-style: double;
-   	border-color: black;
-	opacity: .9;*/
-
+   	border-color: #6441a5;
+   	margin-left: 33%;
+   	margin-right: 33%;
 }
 
 input {
@@ -19,19 +18,21 @@ input {
 	height: 50px;
 	font-color: #6441a5;
 	margin-bottom: 5px;
+	margin-left: 27px;
 }
 
-button {
+#signupButton {
 	padding-top: 5px;
 	align-content: center;
-	width: 340px;
+	width: 320px;
 	height: 40px;
 	background-color: #6441a5;
-	font-size: 20px;
-	margin-left: 5px;
+	font-size: 25px;
+	color: white;
+	margin-left: 42px;
 }
 
 .twitch-connect {
 	align: center;
-	margin-left: 90px;
+	margin-left: 117px;
 }
