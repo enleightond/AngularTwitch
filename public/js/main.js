@@ -3,11 +3,11 @@ var app = angular.module('angTwitch', ['ngRoute']);
 app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider){
 	$routeProvider
 		.when('/', {
-			templateUrl: "/partials/signup.html", 
+			templateUrl: "/partials/login.html", 
 			controller: "LoginController"
 		})
-		.when('/login', {
-			templateUrl: "/partials/login.html", 
+		.when('/signup', {
+			templateUrl: "/partials/signup.html", 
 			controller: "LoginController"
 		})
 		.when('/dashboard', {

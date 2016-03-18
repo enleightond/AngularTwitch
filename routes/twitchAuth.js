@@ -31,7 +31,7 @@ router.get("/", passport.authenticate("twitch"));
 router.get("/callback", passport.authenticate("twitch", { failureRedirect: "/api/signup" }), function(req, res) {
     // Successful authentication, redirect home.
     console.log("foobar3");
-    res.redirect("/#/login");
+    res.redirect("/#/dashboard");
 });
 
 passport.serializeUser(function(user, done) {
