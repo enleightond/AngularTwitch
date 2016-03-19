@@ -1,23 +1,28 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema
-  	.createTable('users', function(table){
-	    table.increments();
-	    table.string('twtich_id');
-	    table.string('name');
-	    table.string('email');
-	    table.string('password');    
-  	})
-  	.createTable('favorites', function(table){
-	    table.increments();
-	    table.string('game');
-	    table.string('streamer');	   	    
-  	})
+  
+	return Promise.all([
+		knex.schema.createTable('users', function(table){
+		    table.increments('uid').primary();
+		    table.string('twtich_id');
+		    table.string('name');
+		    table.string('email');
+		    table.string('password');
+		    table.timestamps();    
+		}),
+		knex.schema.createTable('favorites', function(table){
+		    table.increments('id').primary();
+		    table.string('gameid');
+		    table.string('streamerid');	   	    
+	  	})
+	])
 };
 
 exports.down = function(knex, Promise) {
-  	return knex.schema
-  		.dropTable('users');
-  		.dropTable('favorites');
+	
+	return Promise.all([	
+	  	knex.schema.dropTable('users'),
+	  	knex.schema.dropTable('favorites')
+	])
 };
 	

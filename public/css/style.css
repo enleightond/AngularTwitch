@@ -2,21 +2,27 @@ body {
 
   padding: 70px;
   font: 14px "verdana", Helvetica, sans-serif;
-
   background-image: url("../images/landing1440.jpg");
 }
 
+li.liColor a {
+	color: #6441a5;
+}
+
+.navbar-inverse .navbar-brand{
+    color: #6441a5;
+}
+
 .wrapper {
-	height: 400px;
-	margin-left: 0%;
+	height: 300px;
+	border-radius: 15px;
 	background-color: black;
-	opacity: .9;
-   	border-style: double;
-   	border-color: #6441a5;
+	opacity: .7;
+   	border-style: ;
+   	border-color: ;
    	margin-right: 33%;
    	margin-left: 33%;
 }
-
 
 .form-group {
 	border-color: #6441a5;
