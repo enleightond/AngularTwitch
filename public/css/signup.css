@@ -18,6 +18,11 @@ input {
 	font-color: #6441a5;
 	margin-bottom: 5px;
 	margin-left: 22px;
+	color:white;
+}
+
+#searchTwitch{
+	margin-left: 0px;
 }
 
 #signupButton {

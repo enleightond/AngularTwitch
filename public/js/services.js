@@ -5,7 +5,13 @@ app.service('searchService' , ['$http', function($http) {
 				console.log(res.data)
 				return res.data
 			})
-
 		} 	
 	}
 }])
+
+app.service('signupService', ['$http',function($http){
+	// getUser:function(){
+		
+	// }
+}])
+

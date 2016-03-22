@@ -8,7 +8,7 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider, $loca
 		})
 		.when('/signup', {
 			templateUrl: "/partials/signup.html", 
-			controller: "LoginController"
+			controller: "SignupController"
 		})
 		.when('/dashboard', {
 			templateUrl: "/partials/dashboard.html",

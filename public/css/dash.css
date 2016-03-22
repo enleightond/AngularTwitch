@@ -9,6 +9,18 @@ h1, h2, h4 {
 	color: white;
 }
 
+#searchTwitch{
+	/*border-color: #6441a5;	
+	border-radius: 15px; 
+	background-color: black;
+	opacity:.7;
+	width: 350px;
+	height: 50px;
+	font-color: #6441a5;
+	margin-bottom: 5px;
+	margin-left: 22px;*/
+}
+
 .rowSearch {
 	padding-top: 20px;
 	height: 100px;

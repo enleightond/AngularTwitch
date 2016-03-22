@@ -41,7 +41,7 @@ app.use(session({
 app.use('/', routes);
 app.use('/auth/twitch', twitchAuth);
 app.use('/api/users', users);
-app.use('/api/signup', signup);
+app.use('/api', signup);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
