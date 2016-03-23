@@ -4,7 +4,7 @@
        <!--  <div class="col-md-3"></div -->
         <div class="input-group input-group-lg col-xs-6" id="searchbar">
           <span class="input-group-addon"><img src="../images/Twitch-Icon.png" height="30px"></span>
-          <input type="text" name="twitcherSearch" style="height: 52px;" class="form-control" id="searchTwitch"placeholder="Get yer game on...">
+          <input type="text" ng-model="searchData" style="height: 52px;" class="form-control" id="searchTwitch" placeholder="Get yer game on..." >
           <span class="input-group-btn">
             <button class="btn btn-lg" id="dashButton" style="height: 52px;" ng-click="searchTwitch()"type="button">Find it!</button>
           </span>            
@@ -18,32 +18,30 @@
     <div class="col-md-6">
       <ul class="list-inline">
         
-        <li><{{games}}></li>
-          <% games.forEach(function(game) { %>
-          <ul><a href=""> <%= game.name %> </a></ul>
-          <% }); %>
+        <li><{{topGames}}></li>
+           <!-- topGames.forEach(function(game)  -->
+          <!-- <ul><a href=""> topGame.name </a></ul> -->
+          
 
       </ul>
     </div>
     <div class="col-md-6">           
       <div class="col-xs-8"><h4>Who's on</h4>
         <ul class= "list-unstyled">                     
-          <% streams.forEach(function(stream) { %>
-          <a href="https://api.twitch.tv/kraken/streams"><%= stream.channel.display_name %></a>
-          <% }); %>   
+          <li>{{topStreamers}}</li>
+          <a href="https://api.twitch.tv/kraken/streams"></a>  
         </ul>
       </div>
 
       <div class="col-xs-4"><h4>Tuned in</h4>
         <ul class= "list-unstyled">
             <br>
-          <li>1337</li>
+          <li></li>
             <br>
            
-            <% streams.forEach(function(stream) { %>
-            <li><%= stream.viewers %></li>
-            <% }); %> 
-          <li>42</li>
+            <!-- streams.forEach(function(stream) -->
+            <li>stream.viewers</li>
+          <li></li>
         </ul>
       </div>
     </div>
@@ -51,12 +49,10 @@
 </div>
 
   <div class="col-md-12"><h4>My Stash</h4>
-      <% games.forEach(function(game) { %>
-      <img src=<%= game.box.small %> />
-      <% }); %>
+      <!-- games.forEach(function(game) -->
+      <img src= <%= game.box.small %> />
       <ul class="list-inline">
-          <!-- <% games.forEach(function(game) { %> -->
-          <!-- <ul><a href=""> <%= game.name %> </a></ul> -->
-          <!-- <% }); %> -->
+          <!-- games.forEach(function(game)  -->
+          <!-- <ul><a href="">  game.name </a></ul> -->
       </ul>     
 </div>
