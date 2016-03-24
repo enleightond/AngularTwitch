@@ -1,4 +1,4 @@
-<div ng-controller="DashboardController" >
+<div>
   <div class="container"> 
     <div class="row">
       <form action="/dashboard/search" method="get" id='searchbarBoarder'>
@@ -17,23 +17,25 @@
     <div class="row">
       <div class="col-md-6">
         <ul class="list-inline"> 
-          <li ng-if="!searchQuery" ng-repeat="popGame in popGames"><img ng-src="{{popGame.game.box.medium}}"></li>
-          <li ng-if="searchQuery" ng-repeat="query in searchQuery"><img ng-src="{{query.box.medium}}"></li>
+          <li ng-if="!display.searchQuery" ng-repeat="popGame in display.popGames"><img ng-src="{{popGame.game.box.medium}}"></li>
+          <li ng-if="display.searchQuery" ng-repeat="query in display.queryGames"><img ng-src="{{query.box.medium}}"></li>
         </ul>
       </div>
       <div class="col-md-6">           
         <div class="col-xs-8"><h4>Who's on</h4>
           <ul class= "list-unstyled">                     
-            <li ng-if="!searchQuery" ng-repeat="popStreamer in popStreamers"><img src="{{popStreamer.preview.small}} {{popStreamer.channel.display_name}}"></li>
-            <li ng-if="searchQuery" ng-repeat="query in searchQuery"><img src="{{query.preview.small}} {{query.channel.display_name}}"></li>
+            <li ng-if="!display.searchQuery" ng-repeat="popStreamer in display.popStreamers"><img src="{{popStreamer.preview.small}}">{{popStreamer.channel.display_name}}</li>
+            <li ng-if="display.searchQuery" ng-repeat="query in display.queryStreamers"><img src="{{query.data.streams.preview.small}}">{{query.channel.display_name}}</li>
           </ul>
         </div>
         <div class="col-xs-4"><h4>Tuned in</h4>
           <ul class= "list-unstyled">
+              <br>                    
+              <li ng-repeat="popViewer in display.popViewers">{{popViewer.viewers}}
               <br>          
-              <br>          
-              <!-- streams.forEach(function(stream) -->
-              <li ng-repeat="popViewer in popViewers">{{popViewer.viewers}}</li>
+              <br>
+              <br>
+              </li>
           </ul>
         </div>
       </div>

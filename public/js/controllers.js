@@ -19,44 +19,50 @@ app.controller('SignupController', ['$scope','$location','searchService','$http'
 }])
 
 app.controller('DashboardController', ['$scope','$location','searchService', '$http', function($scope, $location, searchService, $http) {
-	var topGames = 'https://api.twitch.tv/kraken/games/top?limit=5'
-	var topStreamers = 'https://api.twitch.tv/kraken/streams?limit=10'
-	// get me stuff once when the pages loads
+	var topGames = 'https://api.twitch.tv/kraken/games/top?limit=6'
+	var topStreamers = 'https://api.twitch.tv/kraken/streams?limit=5'
+	$scope.display = {searchQuery: false};
+	///// POPULATE VIEW WITH DEFAULT TOP GAMES AND STREAMERS /////
 	$http({
 		method: 'GET',
 		url: topGames
 	}).then(function successCallback(res){
-		$scope.popGames = res.data.top;//.game.box.medium;
+		$scope.display.popGames = res.data.top;//.game.box.medium;
 	}, function failCallback(res){
 		console.log("THE SYSTEM IS DOWN");
 	});
-
 	$http({
 		method: 'GET',
 		url: topStreamers
 	}).then(function successCallback(res){
-		console.log(res)
-		$scope.popStreamers = res.data.streams;//.preview.small;
-		$scope.popViewers = res.data.streams;//.viewers;
+		$scope.display.popStreamers = res.data.streams;//.preview.small;
+		$scope.display.popViewers = res.data.streams;//.viewers;
 	}, function failCallback(res){
-		console.log("THE SYSTEM IS DOWN", res);
+		console.log("THE SYSTEM IS DOWN");
 	});
-	// get me stuff once a search is called
+	///// POPULATE VIEW WITH QUERY GAME AND/OR STREAMER /////
 	$scope.searchTwitch = function () {		
-		var searchString =
-			'https://api.twitch.tv/kraken/search/games?q=' + 
-			$scope.searchData + 
-			'&type=suggest'
+		var searchStringGame =
+			'https://api.twitch.tv/kraken/search/games?q=' + $scope.searchData + '&type=suggest';
+		var searchStringStreamer =	
+			'https://api.twitch.tv/kraken/search/streams?q=' + $scope.searchData + '&type=suggest';	
 
-			$http({
-				method: 'GET',
-				url: searchString
-			}).then(function successCallback(res){
-				$scope.searchQuery = res.data.games;//.box.medium;
-				$scope.searchStreamers = 				
-			}, function failedCallback(res){
-				console.log("THE SYSTEM IS DOWN", res);
-			})
+		var gameQ = $http({
+					method: 'GET',
+					url: searchStringGame
+				});
+		var streamerQ = $http({
+					method: 'GET',
+					url: searchStringStreamer
+				});
+
+		Promise.all([gameQ, streamerQ]).then(function(responses) {
+			console.log(responses, 'responses');
+			$scope.display.searchQuery = true;
+			$scope.display.queryGames = responses[0].data.games;//.box.medium;
+			$scope.display.queryStreamers = responses[1].data.streams;//.data.streams.preview.small;
+			$scope.$apply();
+		})	
 	}
 }])
 
