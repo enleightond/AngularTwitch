@@ -11,18 +11,13 @@ passport.use(new twitchStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
       var err;
-      console.log("foobar");
-      console.log(profile);
-      // if else, to check vs db, and create if not present. 
-
       return done(err, profile);
   }
 ));
 
-router.get("/", passport.authenticate("twitch"));
+router.get("/", passport.authenticate("twitch"))
 router.get("/callback", passport.authenticate("twitch", { failureRedirect: "/api/signup" }), function(req, res) {
     // Successful authentication, redirect to dashboard.
-    console.log("foobar3");
     res.redirect("/#/dashboard");
 });
 

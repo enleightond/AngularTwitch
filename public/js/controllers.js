@@ -1,19 +1,21 @@
 app.controller('LoginController', ['$scope','$location','searchService', function($scope, $location, searchService) {
-	$scope.test = "this is just a test";
 	$scope.twitchLogin = function (provider) {
-    	searchService.getGames();
-      console.log("foo");
+    	
     };  
 }]);
 
 app.controller('SignupController', ['$scope','$location','searchService','$http', function($scope, $location, searchService, $http){
 	$scope.error = '';		
-	$scope.submit=function(){
+	$scope.submit = function(){
 		$http({
 			method: 'POST',
 			url:'/api/signup',
 			data: {user:$scope.user}
+		}).then(function(data) {
+			$scope.user = data.user;
+			$location.path('/dashboard')
 		});
+
 	}		
 }])
 
