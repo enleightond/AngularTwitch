@@ -10,6 +10,11 @@ h1, h2, h4 {
 	color: white;
 }
 
+iframe {
+	margin-left: 5%;
+	border: 1px solid #6441a5;
+}
+
 .row{
 	color: white;
 }
@@ -55,6 +60,7 @@ img {
 	/*border: 3px solid blue;*/
 	background-color: black;
 	opacity: 0.8;
+	border: 1px solid #6441a5;
 	font: "verdana", Helvetica, sans-serif, white;
 }
 
@@ -66,8 +72,7 @@ img {
 	/*width: auto;*/
 	height: 180px; 
 	background-color: black;
-	border: 3px solid black;
-	opacity: 0.8;
+	border: 1px solid #6441a5;
 }
 
 .col-xs-6 {
@@ -78,4 +83,8 @@ img {
 #searchbarBoarder{
 	margin-left: 25%;
 	margin-right: 25%;
+}
+
+.list-inline {
+	margin: auto;
 }

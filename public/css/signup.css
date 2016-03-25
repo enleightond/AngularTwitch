@@ -3,7 +3,7 @@
 	background-color: black;
 	opacity: .7;
 	border-radius: 15px;
-   	border-color: #6441a5;
+   	border: 1px solid #6441a5;
    	margin-left: 33%;
    	margin-right: 33%;
 }

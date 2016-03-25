@@ -15,26 +15,36 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6"><h4>Click to add to My Stash!</h4>
         <ul class="list-inline"> 
-          <li ng-if="!display.searchQuery" ng-repeat="popGame in display.popGames"><img ng-src="{{popGame.game.box.medium}}"></li>
-          <li ng-if="display.searchQuery" ng-repeat="query in display.queryGames"><img ng-src="{{query.box.medium}}"></li>
+          <li ng-if="!display.searchQuery" ng-repeat="popGame in display.popGames">
+            <img ng-click="getStreamers(popGame.game.name)" ng-src="{{popGame.game.box.medium}}">
+          </li>
+          <!-- AFTER QUERY -->
+          <li ng-if="display.searchQuery" ng-repeat="query in display.queryGames">
+            <img ng-click="getStreamers(query.name)" ng-src="{{query.box.medium}}">
+          </li>
         </ul>
       </div>
       <div class="col-md-6">           
-        <div class="col-xs-8"><h4>Who's on</h4>
+        <div class="col-xs-8"><h4>Who's Streaming</h4>
           <ul class= "list-unstyled">                     
-            <li ng-if="!display.searchQuery" ng-repeat="popStreamer in display.popStreamers"><img src="{{popStreamer.preview.small}}">{{popStreamer.channel.display_name}}</li>
-            <li ng-if="display.searchQuery" ng-repeat="query in display.queryStreamers"><img src="{{query.data.streams.preview.small}}">{{query.channel.display_name}}</li>
+            <li ng-if="!display.searchQuery" ng-repeat="popStreamer in display.popStreamers">
+              <img ng-click="getStream(popStreamer.channel.name)" src="{{popStreamer.preview.small}}">{{popStreamer.channel.display_name}}
+           </li>
+            <!-- AFTER QUERY -->
+            <li ng-if="display.searchQuery" ng-repeat="query in display.queryStreamers">
+              <img ng-click="getStream(query.channel.name)" src="{{query.preview.small}}">{{query.channel.display_name}}
+            </li>
           </ul>
         </div>
-        <div class="col-xs-4"><h4>Tuned in</h4>
+        <div class="col-xs-4"><h4>Viewers</h4>
           <ul class= "list-unstyled">
               <br>                    
-              <li ng-repeat="popViewer in display.popViewers">{{popViewer.viewers}}
-              <br>          
-              <br>
-              <br>
+              <li ng-if="!display.searchQuery" ng-repeat="popViewer in display.popStreamers">{{popViewer.viewers}}
+              <br><br><br>
+              <li ng-if="display.searchQuery" ng-repeat="query in display.queryStreamers">{{query.viewers}}
+              <br><br><br>
               </li>
           </ul>
         </div>
@@ -42,7 +52,9 @@
     </div>
   </div>
     <div class="col-md-12"><h4>My Stash</h4>
-        
+      <div ng-bind-html="twitchIframe">
+         
+      </div>  
         <img src=""/>
         <ul class="list-inline">
             

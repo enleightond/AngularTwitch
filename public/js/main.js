@@ -1,4 +1,4 @@
-var app = angular.module('angTwitch', ['ngRoute']);
+var app = angular.module('angTwitch', ['ngRoute', 'ngSanitize']);
 
 app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider){
 	$routeProvider

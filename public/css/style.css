@@ -17,9 +17,8 @@ li.liColor a {
 	height: 300px;
 	border-radius: 15px;
 	background-color: black;
-	opacity: .7;
-   	border-style: ;
-   	border-color: ;
+	opacity: .8;
+   	border: 1px solid #6441a5;
    	margin-right: 33%;
    	margin-left: 33%;
 }
@@ -32,7 +31,6 @@ li.liColor a {
 	opacity: .7;
 	width: 350px;
 	height: 50px;
-	font-color: #6441a5;
 	margin-bottom: 10px;
 	
 }
