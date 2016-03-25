@@ -21,10 +21,30 @@ app.controller('DashboardController', ['$scope','$location','searchService', '$h
 	var topGames = 'https://api.twitch.tv/kraken/games/top?limit=6'
 	var topStreamers = 'https://api.twitch.tv/kraken/streams?limit=5'
 	$scope.display = {searchQuery: false};
-	// $scope.channelName = "";
-	// $scope.channelName = "http://player.twitch.tv/?channel=itmejp&html5"
-	// "https://api.twitch.tv/kraken/streams/channel/itmejp"
+	$scope.stashGames = [];
+	///// POPULATE VIEW WITH DEFAULT TOP GAMES AND STREAMERS /////
+	$http({
+		method: 'GET',
+		url: topGames
+	}).then(function successCallback(res){
+			$scope.display.popGames = res.data.top;//.game.box.medium;
+			console.log(res);
+		}, 
+		function failCallback(res){
+			console.log("THE SYSTEM IS DOWN");
+		});
 
+	$http({
+		method: 'GET',
+		url: topStreamers
+	}).then(function successCallback(res){
+			$scope.display.popStreamers = res.data.streams;//.preview.small;
+			$scope.display.popViewers = res.data.streams;//.viewers;
+		}, 
+		function failCallback(res){
+			console.log("THE SYSTEM IS DOWN");
+		});
+	////////////////////////////////////////////////////////////////
 	$scope.getStreamers = function (data) {
 		searchService.getStreamers(data).then(function(res){
 			if ($scope.display.searchQuery) {	
@@ -32,43 +52,37 @@ app.controller('DashboardController', ['$scope','$location','searchService', '$h
 			} else {
 				$scope.display.popStreamers = res;
 			}
-
 		});
 	}
-	
+
 	$scope.getStream = function (name) {
 		$scope.channelName = name;
 		$scope.twitchIframe = $sce.trustAsHtml(
 		'<iframe src="http://player.twitch.tv/?channel=' + $scope.channelName + '&html5" height="648" width="1152" frameborder="0" scrolling="no" allowfullscreen="true" muted="false" autoplay="true"></iframe>');
 	}
 
-	///// POPULATE VIEW WITH DEFAULT TOP GAMES AND STREAMERS /////
-	$http({
-		method: 'GET',
-		url: topGames
-	}).then(function successCallback(res){
-		$scope.display.popGames = res.data.top;//.game.box.medium;
-		console.log(res);
-	}, function failCallback(res){
-		console.log("THE SYSTEM IS DOWN");
-	});
-
-	$http({
-		method: 'GET',
-		url: topStreamers
-	}).then(function successCallback(res){
-		$scope.display.popStreamers = res.data.streams;//.preview.small;
-		$scope.display.popViewers = res.data.streams;//.viewers;
-	}, function failCallback(res){
-		console.log("THE SYSTEM IS DOWN");
-	});
-	///// POPULATE VIEW WITH QUERY GAME AND/OR STREAMER /////
+	$scope.getFav = function (favorite){
+		var getFavObj = {}; 
+			if (!!favorite.game) {
+				getFavObj.name = favorite.game.name;
+				getFavObj.img = favorite.game.box.medium;
+			} else {
+				getFavObj.name = favorite.name;
+				getFavObj.img = favorite.box.medium;
+			}
+		for (var i = 0; i < $scope.stashGames.length; i++) {
+			if($scope.stashGames[i].name === getFavObj.name){
+				return;
+			}
+		}	
+		$scope.stashGames.push(getFavObj);
+	}
+	///// POPULATE VIEW WITH QUERY GAME OR STREAMER /////
 	$scope.searchTwitch = function () {		
 		var searchStringGame =
 			'https://api.twitch.tv/kraken/search/games?q=' + $scope.searchData + '&type=suggest';
 		var searchStringStreamer =	
 			'https://api.twitch.tv/kraken/streams?game=' + $scope.searchData;	
-
 		var gameQ = $http({
 					method: 'GET',
 					url: searchStringGame
@@ -77,7 +91,6 @@ app.controller('DashboardController', ['$scope','$location','searchService', '$h
 					method: 'GET',
 					url: searchStringStreamer
 				});
-
 		Promise.all([gameQ, streamerQ]).then(function(responses) {
 			console.log(responses, 'responses');
 			$scope.display.searchQuery = true;
@@ -87,8 +100,4 @@ app.controller('DashboardController', ['$scope','$location','searchService', '$h
 			$scope.$apply();
 		})	
 	}
-}])
-
-
-
-	
+}])	
