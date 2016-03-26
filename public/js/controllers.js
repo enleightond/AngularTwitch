@@ -1,7 +1,13 @@
-app.controller('LoginController', ['$scope','$location','searchService', function($scope, $location, searchService) {
+app.controller('LoginController', ['$scope','$location','searchService','$http', function($scope, $location, searchService, $http) {
 	$scope.twitchLogin = function (provider) {
-    	
-    };  
+    	$http({
+    		method: 'POST',
+    		url:'/',
+    		data: {user:$scope.user}
+    	}).then(function(data){
+    		//check vs knex db
+    	})
+    }  
 }]);
 
 app.controller('SignupController', ['$scope','$location','searchService','$http', function($scope, $location, searchService, $http){
