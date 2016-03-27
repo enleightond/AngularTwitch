@@ -10,8 +10,14 @@ h1, h2, h4 {
 	color: white;
 }
 
+#streamersList{
+	margin-left: 20%;
+}
+
 .stashButton{
 	color: #6441a5;
+	display: block;
+	margin-left: 15px;
 }
 
 iframe {
@@ -72,6 +78,7 @@ img {
 	border-radius: 10px;
 	padding: 10px; 
 	height: 250px; 
+	opacity: 0.8;
 	background-color: black;
 	border: 1px solid #6441a5;
 	overflow-x: scroll;
@@ -89,4 +96,13 @@ img {
 
 .list-inline {
 	margin: auto;
+	text-align: center;
+}
+
+.list-unstyled {
+	/*text-align: center;*/
+}
+
+#viewersList {
+	text-align: center;
 }

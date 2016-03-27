@@ -26,8 +26,8 @@ app.controller('SignupController', ['$scope','$location','searchService','$http'
 }])
 
 app.controller('DashboardController', ['$scope','$location','searchService', '$http', '$sce', function($scope, $location, searchService, $http, $sce) {
-	var topGames = 'https://api.twitch.tv/kraken/games/top?limit=6'
-	var topStreamers = 'https://api.twitch.tv/kraken/streams?limit=5'
+	var topGames = 'https://api.twitch.tv/kraken/games/top?limit=21'
+	var topStreamers = 'https://api.twitch.tv/kraken/streams?limit=20'
 	$scope.display = {searchQuery: false};
 	$scope.stashGames = [];
 	///// POPULATE VIEW WITH DEFAULT TOP GAMES AND STREAMERS /////
