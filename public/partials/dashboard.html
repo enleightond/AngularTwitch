@@ -59,7 +59,9 @@
     <div class="col-md-11"><h4>My Stash</h4>
         <img src=""/>
         <ul class="list-inline">
-          <li ng-repeat="stashGame in stashGames"><img ng-click="getStreamers(stashGame.name)" ng-src='{{stashGame.img}}'></li>
+          <li ng-repeat="stashGame in stashGames"><img ng-click="getStreamers(stashGame.name)" ng-src='{{stashGame.img}}'>
+          <button ng-click='removeFav(stashGame)' class='stashButtonDel'>Remove</button>
+          </li>
         </ul>     
   </div>
   <div ng-bind-html="twitchIframe"></div>  

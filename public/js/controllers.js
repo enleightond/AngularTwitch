@@ -85,6 +85,12 @@ app.controller('DashboardController', ['$scope','$location','searchService', '$h
 		}	
 		$scope.stashGames.push(getFavObj);
 	}
+
+	$scope.removeFav = function (notFav) { 
+		//for (var i = 0; i < $scope.stashGames.length; i++) {
+			$scope.stashGames.splice(notFav, 1);			
+		//}
+	}
 	///// POPULATE VIEW WITH QUERY GAME OR STREAMER /////
 	$scope.searchTwitch = function () {		
 		var searchStringGame =
