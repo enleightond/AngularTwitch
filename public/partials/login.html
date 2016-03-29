@@ -1,14 +1,16 @@
 <!-- Login In -->
-<div class="wrapper">
-    <h1>Login</h1>
-    <div class="col-sm-4"></div>
-		<div class="form-group col-sm-4">		
-	    	<form ng-submit="twitchLogin(loginForm)" name="loginForm" class="form-horizontal">
-				<input type="email" id="inputEmail3" ng-model='user.email' name='user[email]' placeholder="Email">		
-			  	<input type="password" id="inputPassword3" ng-model='user.passowrd' name='user[password]'placeholder="Password">				
-				<button id="loginButton" class="btn btn-lg">Game On!</button>		
-			</form>			
-				<a href="/auth/twitch"><img src="http://ttv-api.s3.amazonaws.com/assets/connect_dark.png" class="twitch-connect"/></a>			
-		</div>
-	<div class="col-sm-4"></div>
+<div class'container-responsive'>
+	<div class="wrapper">
+	    <h1>Login</h1>
+	    <div class="col-sm-4"></div>
+			<div class="form-group col-sm-4">		
+		    	<form ng-submit="twitchLogin(loginForm)" name="loginForm" class="form-horizontal">
+					<input type="email" id="inputEmail3" ng-model='user.email' name='user[email]' placeholder="Email">		
+				  	<input type="password" id="inputPassword3" ng-model='user.passowrd' name='user[password]'placeholder="Password">				
+					<button id="loginButton" class="btn btn-lg">Game On!</button>		
+				</form>			
+					<a href="/auth/twitch"><img src="http://ttv-api.s3.amazonaws.com/assets/connect_dark.png" class="twitch-connect"/></a>			
+			</div>
+		<div class="col-sm-4"></div>
+	</div>
 </div>
